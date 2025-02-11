@@ -1,0 +1,3 @@
+DB_URL = 'DB URL'
+PORT = 'PORT NO'
+JWT_KEY = 'Secret Key'
