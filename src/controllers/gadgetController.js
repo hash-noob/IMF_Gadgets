@@ -96,3 +96,14 @@ exports.displayToken = async (req, res) => {
         res.status(500).json({ error: 'Error generating token', details: error.message });
     }
 }
+
+// Fetching the gadgets from the database by status
+exports.getAllGadgetsByStatus = async (req, res) => {
+    try {
+        const { status } = req.params;
+        const gadgets = await Gadget.findAll({ where: { status } });
+        res.status(200).json(gadgets);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching gadgets', details: error.message });
+    }
+}
